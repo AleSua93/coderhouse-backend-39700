@@ -5,6 +5,7 @@ import viewsRouter from "./routes/views.router.js";
 import { Server } from "socket.io";
 
 const app = express();
+const messages = [];
 
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
@@ -34,6 +35,10 @@ socketServer.on("connection", (socket) => {
   socket.on("input-changed", (data) => {
     console.log(data);
     socketServer.emit("input-changed", data);
+  });
+
+  socket.on("new-message", (data) => {
+    messages.push({ socketId: socket.id, mensaje: data });
   });
 
   // setInterval(() => {
