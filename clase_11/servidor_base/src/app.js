@@ -27,4 +27,10 @@ io.on("connection", (socket) => {
 
     io.emit("messages", messages);
   });
+
+  socket.on("new-user", (username) => {
+    socket.emit("messages", messages);
+
+    socket.broadcast.emit("new-user", username);
+  });
 });
