@@ -20,7 +20,7 @@ const queryData = async () => {
 
 const main = async () => {
   await mongoose.connect(
-    "mongodb+srv://Coder:mipassword12@codercluster.kvisivd.mongodb.net/indexacion?retryWrites=true&w=majority"
+    "mongodb+srv://Coder:<password>@codercluster.kvisivd.mongodb.net/indexacion?retryWrites=true&w=majority"
   );
 
   // await seedData();
